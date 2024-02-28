@@ -10,7 +10,7 @@ function countdownTimer(totalSeconds){
             var minutes = document.getElementById('minutes');
         const div = Math.floor((totalSeconds % (60 * 60)) / (60));
             var seconds = document.getElementById('seconds');
-        const mul = totalSeconds % 60;
+        const mul = Math.floor(totalSeconds % 60);
        
         // Display the countdown.
         days.innerHTML = add;
@@ -29,11 +29,14 @@ function countdownTimer(totalSeconds){
             // restart the countdown
             setTimeout(countdownTimer(totalSeconds), 1000);
         }
-    },1000)
-}
+    },1000);
 
+}
+var later = new Date("March 10, 2024 24:00:00").getTime();
+var now = new Date().getTime();
+var dis = (later - now) / 1000;
 // Set the initial total seconds for the countdown.
-const initialTotalSeconds = 864000;
+const initialTotalSeconds = dis;
 
 // start the countdown timer
 countdownTimer(initialTotalSeconds);
